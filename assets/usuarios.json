@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "nome": "Pura Vida App",
+        "login": "puravidaapp",
+        "bio": "Usuário padrão",
+        "restricao": false,
+        "restricao_id": [],
+        "ultimo_login": ""
+    },
+    {
+        "id": "2",
+        "nome": "Pedro Henrique Guimarães Liberal",
+        "login": "phgl",
+        "bio": "Programador, fotógrafo e eterno aprendiz",
+        "restricao": false,
+        "restricao_id": [],
+        "ultimo_login": ""
+    }
+]
