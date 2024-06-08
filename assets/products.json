@@ -1,0 +1,26 @@
+[
+    {
+        "ID": "1",
+        "DESCRIPTION": "Biscoito de chocolate sem glúten recheado com creme de leite 165G",
+        "BRAND": "Schär",
+        "RESTRICTION": "Gluten",
+        "STARS": 5,
+        "REVIEWS": []
+    },
+    {
+        "ID": "2",
+        "DESCRIPTION": "Biscoito de cacau sem glúten 100G",
+        "BRAND": "Celivita",
+        "RESTRICTION": "Gluten",
+        "STARS": 4,
+        "REVIEWS": []
+    },
+    {
+        "ID": "3",
+        "DESCRIPTION": "Torrada leve sem glúten e lactose 150G",
+        "BRAND": "Schär",
+        "RESTRICTION": ["Gluten","Lactose"],
+        "STARS": 5,
+        "REVIEWS": []
+    }
+]
