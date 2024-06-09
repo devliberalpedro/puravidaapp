@@ -14,15 +14,16 @@
     },
     {
         "ID": "2",
-        "DESCRIPTION": "Torrada leve sem glúten e lactose 150G",
+        "DESCRIPTION": "Torrada leve sem glúten e sem lactose 150G",
         "BRAND": "Schär",
         "RESTRICTION": [
             "Glúten",
             "Lactose"
         ],
-        "STARS": 5,
+        "STARS": "4",
         "REVIEWS": [
-            "Combina perfeitamente com meu cafezinho"
+            "Combina perfeitamente com meu cafezinho",
+            "Crocante e saborosa!"
         ]
     },
     {

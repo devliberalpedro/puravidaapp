@@ -1,5 +1,4 @@
 import json
-import os
 from pathlib import Path
 from main import screen_clear, press_continue
 
@@ -133,6 +132,11 @@ def update_product(assets_path):
         for idx, review in enumerate(productbase[product_index].get('REVIEWS')):
             print(f'>> {idx + 1}: {review}')
     
+    # Salva a lista no arquivo de produtos
+    with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
+        json.dump(productbase, file, indent=4, ensure_ascii=False)
+
+    print('\n>> Produto atializado com sucesso! <<')    
     press_continue()
 
 # Função para cadastrar produtos
@@ -185,11 +189,61 @@ def register_product(assets_path):
     # Salva a lista no arquivo de produtos
     with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
         json.dump(productbase, file, indent=4, ensure_ascii=False)
+    
+    print('\n>> Produto cadastrado com sucesso! <<')
+    press_continue()
 
 # Função para comprar produtos
 def compare_products(assets_path):
     screen_clear()
     print('>> Comparar produtos <<\n')
+
+    # Recebe os produtos já cadastrados
+    productbase = read_products(assets_path)
+
+    search_description = input('Qual produto deseja pesquisar? ')
+
+    # Lista auxiliar para verificar se o produto já existe
+    # Executará um laço para inserir as ocorrências deste produto
+    # Caso o produto não tenha ocorrência, pergunta se deve realizar o registro
+    products_list = []
+
+    for idx in range(len(productbase)):
+        products_list.append(productbase[idx].get('DESCRIPTION'))
+
+    # Busca por ocorrências com a substring da descrição na base de produtos
+    found = [ idx for idx in products_list if search_description.capitalize() in idx ]
+
+    if len(found) == 0:
+        print('\nNenhum produto encontrado com esta descrição')
+    else:
+        print('\nProdutos encontrados: ')
+        
+        for idx in range(len(found)):
+            print(f'     {idx + 1}. {found[idx]}')
+        
+        print('\nQual produtos deseja comparar? ')
+        selected = input('Informe todos separados por vírgulas: ')
+        selected_list = selected.split(',')
+        selected_list = [item.strip() for item in selected_list]
+
+        for idx, position in enumerate(selected_list):
+            print(f'\nProduto {idx + 1}:')
+            product_index = products_list.index(found[int(position) - 1])
+
+            print(f'Descrição: {productbase[product_index].get('DESCRIPTION')}')
+            print(f'Marca: {productbase[product_index].get('BRAND')}')
+            print(f'Estrelas: {productbase[product_index].get('STARS')}')
+
+            print('\nIndicado para as restrições:')
+            for idx, restriction in enumerate(productbase[product_index].get('RESTRICTION')):
+                print(f'>> {idx + 1}: {restriction}')
+
+            print('\nAvaliações:')
+            for idx, review in enumerate(productbase[product_index].get('REVIEWS')):
+                print(f'>> {idx + 1}: {review}')
+    
+    press_continue()
 
 # Função para pesquisar produtos
 def search_products(assets_path):
