@@ -102,14 +102,14 @@ def remove_product(assets_path):
     screen_clear()
     print('>> Remover produto <<\n')
 
-    # Recebe os usuários já cadastrados
+    # Recebe os produtos já cadastrados
     productbase = read_products(assets_path)
 
     search_description = input('Qual produto deseja remover? ')
 
-    # Lista auxiliar para verificar se o usuário já existe
-    # Executará um laço para inserir as ocorrências deste usuário
-    # Caso o usuário não tenha ocorrência, pergunta se deve realizar o registro
+    # Lista auxiliar para verificar se o produto já existe
+    # Executará um laço para inserir as ocorrências deste produto
+    # Caso o produto não tenha ocorrência, pergunta se deve realizar o registro
     products_list = []
 
     for idx in range(len(productbase)):
