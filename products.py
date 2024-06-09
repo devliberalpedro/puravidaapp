@@ -97,6 +97,35 @@ def search_products(assets_path):
     screen_clear()
     print('>> Pesquisar produtos <<\n')
 
+    # Recebe os produtos já cadastrados
+    productbase = read_products(assets_path)
+
+    search_description = input('Qual produto deseja remover? ')
+
+    # Lista auxiliar para verificar se o produto já existe
+    # Executará um laço para inserir as ocorrências deste produto
+    # Caso o produto não tenha ocorrência, pergunta se deve realizar o registro
+    products_list = []
+
+    for idx in range(len(productbase)):
+        products_list.append(productbase[idx].get('DESCRIPTION'))
+
+    # Busca por ocorrências com a substring da descrição na base de produtos
+    found = [ idx for idx in products_list if search_description.capitalize() in idx ]
+
+    if len(found) == 0:
+        print('Nenhum produto encontrado com esta descrição')
+    else:
+        print('Produtos encontrados: ')
+        
+        for idx in range(len(found)):
+            #print(f'     {idx + 1}. {products_list[found[idx]]}')
+            print(f'     {idx + 1}. {found[idx]}')
+        
+        selected = int(input('Qual produto deseja remover? ')) -1
+
+
+
 # Remove um produto
 def remove_product(assets_path):
     screen_clear()
