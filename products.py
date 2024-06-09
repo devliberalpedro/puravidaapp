@@ -1,9 +1,12 @@
 import json
 import os
 from pathlib import Path
+from main import screen_clear, press_continue
 
 def print_menu(assets_path):
     while True:
+        screen_clear()
+
         menu_opts = ({'id':1, 'info': 'Alterar produto'},
                      {'id':2, 'info': 'Cadastrar produto'},
                      {'id':3, 'info': 'Comparar produtos'},
@@ -11,7 +14,7 @@ def print_menu(assets_path):
                      {'id':5, 'info': 'Remover produto'},
                      {'id':0, 'info': 'Voltar ao menu inicial'})
     
-        print('\n>> Menu: Compare e Conheça <<')
+        print('>> Menu: Compare e Conheça <<')
         for opt in menu_opts:
             print('     {id}. {info}'.format(**opt))
         
@@ -21,7 +24,7 @@ def print_menu(assets_path):
             selected = None
 
         while selected == None or not selected.is_integer or selected < 0 or selected > 5:
-            print(">>>> ATENÇÃO: Escolha uma opção válida!")
+            print("\n>>>> ATENÇÃO: Escolha uma opção válida!")
 
             try:
                 selected = int(input('Escolha uma opção: '))
@@ -29,13 +32,6 @@ def print_menu(assets_path):
                 selected = None
         
         if selected == 0:
-            # Executa a limpeza do console para qualquer sistema operacional
-            # windows: cls linux/apple: clear
-            if os.name == 'nt':
-                os.system('cls')
-            else:
-                os.system('clear')
-
             return 0
         elif selected == 1:
             update_product(assets_path)
@@ -55,10 +51,12 @@ def read_products(assets_path):
 
 # Função para atualizar produto
 def update_product(assets_path):
+    screen_clear()
     print('>> Atualização de produto <<\n')
 
 # Função para cadastrar produtos
 def register_product(assets_path):
+    screen_clear()
     print('>> Cadastro de produtos <<\n')
 
     # Recebe os usuários já cadastrados
@@ -75,31 +73,72 @@ def register_product(assets_path):
     new_review = input('Escreva uma avaliação do produto: ')
 
     # Cria o dicionário a ser adicionado na lista
-    new_user = {'ID': new_id,
+    new_product = {'ID': new_id,
                 'DESCRIPTION': new_description,
                 'BRAND': new_brand,
                 'RESTRICTION': new_restriction,
                 'STARS': new_stars,
-                'REVIEWS': new_restriction
+                'REVIEWS': new_review
                 }
     
-    productbase.append(new_user)
+    productbase.append(new_product)
 
-    # Salva a lista no arquivo de usuários
+    # Salva a lista no arquivo de produtos
     with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
         json.dump(productbase, file, indent=4, ensure_ascii=False)
 
 # Função para comprar produtos
 def compare_products(assets_path):
+    screen_clear()
     print('>> Comparar produtos <<\n')
 
 # Função para pesquisar produtos
 def search_products(assets_path):
+    screen_clear()
     print('>> Pesquisar produtos <<\n')
 
 # Remove um produto
 def remove_product(assets_path):
+    screen_clear()
     print('>> Remover produto <<\n')
 
     # Recebe os usuários já cadastrados
     productbase = read_products(assets_path)
+
+    search_description = input('Qual produto deseja remover? ')
+
+    # Lista auxiliar para verificar se o usuário já existe
+    # Executará um laço para inserir as ocorrências deste usuário
+    # Caso o usuário não tenha ocorrência, pergunta se deve realizar o registro
+    products_list = []
+
+    for idx in range(len(productbase)):
+        products_list.append(productbase[idx].get('DESCRIPTION'))
+
+    # Busca por ocorrências com a substring da descrição na base de produtos
+    found = [ idx for idx in products_list if search_description.capitalize() in idx ]
+
+    if len(found) == 0:
+        print('Nenhum produto encontrado com esta descrição')
+    else:
+        print('Produtos encontrados: ')
+        
+        for idx in range(len(found)):
+            print(f'     {idx + 1}. {found[idx]}')
+        
+        print(productbase)
+        selected = int(input('Qual produto deseja remover? '))
+
+        print(products_list(found[selected - 1]))
+        
+        deleting = products_list(found[selected - 1])
+        del productbase[deleting]
+        print(productbase)
+
+        # Salva a lista no arquivo de produtos
+        #with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
+        #    json.dump(products_list, file, indent=4, ensure_ascii=False)
+    
+        print('>> Produto excluído do sistema com sucesso! <<')
+    
+    press_continue()
