@@ -1,0 +1,11 @@
+#Após o profissinal entrar no aplicativo, ele tera acesso apenas a seu perfil
+#Caso o profissional esteja fazendo seu cadastro
+
+def adicionar_prof(nome, localizacao, especialidade, restricao):
+    profissional = {
+        "Nome": nome,
+        "Sua cidade": localizacao,
+        "Sua especialidade medica": especialidade,
+        "Quais restrições você atende": restricao.split(', ')
+    }
+ profissionais.append(profissional)
