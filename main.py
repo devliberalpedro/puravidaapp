@@ -2,6 +2,7 @@ import os
 import getpass
 import users
 import products
+#import professionals
 from pathlib import Path
 
 # Executa a limpeza do console para qualquer sistema operacional
