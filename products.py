@@ -100,7 +100,7 @@ def search_products(assets_path):
     # Recebe os produtos já cadastrados
     productbase = read_products(assets_path)
 
-    search_description = input('Qual produto deseja remover? ')
+    search_description = input('Qual produto deseja pesquisar? ')
 
     # Lista auxiliar para verificar se o produto já existe
     # Executará um laço para inserir as ocorrências deste produto
@@ -114,17 +114,27 @@ def search_products(assets_path):
     found = [ idx for idx in products_list if search_description.capitalize() in idx ]
 
     if len(found) == 0:
-        print('Nenhum produto encontrado com esta descrição')
+        print('\nNenhum produto encontrado com esta descrição')
     else:
-        print('Produtos encontrados: ')
+        print('\nProdutos encontrados: ')
         
         for idx in range(len(found)):
-            #print(f'     {idx + 1}. {products_list[found[idx]]}')
             print(f'     {idx + 1}. {found[idx]}')
         
-        selected = int(input('Qual produto deseja remover? ')) -1
+        selected = int(input('\nQual produto deseja mais informações? ')) -1
 
+        product_index = products_list.index(found[selected])
 
+        print(f'\nDescrição: {productbase[product_index].get('DESCRIPTION')}')
+        print(f'Marca: {productbase[product_index].get('BRAND')}')
+        print(f'Indicado para restrição: {productbase[product_index].get('RETRICTION')}')
+        print(f'Estrelas: {productbase[product_index].get('STARS')}')
+
+        print('Avaliações:\n')
+        for idx, review in enumerate(productbase[product_index].get('REVIEWS')):
+            print(f'>> {idx + 1}: {review}')
+    
+    press_continue()
 
 # Remove um produto
 def remove_product(assets_path):
@@ -148,15 +158,14 @@ def remove_product(assets_path):
     found = [ idx for idx in products_list if search_description.capitalize() in idx ]
 
     if len(found) == 0:
-        print('Nenhum produto encontrado com esta descrição')
+        print('\nNenhum produto encontrado com esta descrição')
     else:
-        print('Produtos encontrados: ')
+        print('\nProdutos encontrados: ')
         
         for idx in range(len(found)):
-            #print(f'     {idx + 1}. {products_list[found[idx]]}')
             print(f'     {idx + 1}. {found[idx]}')
         
-        selected = int(input('Qual produto deseja remover? ')) -1
+        selected = int(input('\nQual produto deseja remover? ')) -1
         
         # Deletar o produto selecionado da lista de produtos
         deleting_index = products_list.index(found[selected])
@@ -166,6 +175,6 @@ def remove_product(assets_path):
         with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
             json.dump(productbase, file, indent=4, ensure_ascii=False)
     
-        print('>> Produto excluído do sistema com sucesso! <<')
+        print('\n>> Produto excluído do sistema com sucesso! <<')
     
     press_continue()

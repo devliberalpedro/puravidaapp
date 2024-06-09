@@ -5,7 +5,7 @@
         "BRAND": "Celivita",
         "RESTRICTION": "Gluten",
         "STARS": 4,
-        "REVIEWS": []
+        "REVIEWS": ["Saboroso e leve! Meu filho amou", "Apesar do preço, não pode faltar no meu lanche"]
     },
     {
         "ID": "2",
@@ -13,7 +13,7 @@
         "BRAND": "Schär",
         "RESTRICTION": ["Gluten","Lactose"],
         "STARS": 5,
-        "REVIEWS": []
+        "REVIEWS": ["Combina perfeitamente com meu cafezinho"]
     },
     {
         "ID": "3",
@@ -21,6 +21,6 @@
         "BRAND": "Schär",
         "RESTRICTION": "Gluten",
         "STARS": 5,
-        "REVIEWS": []
+        "REVIEWS": ["Voltei a ser criança, mas agora com saúde!", "Ótimo", "Recomendado"]
     }
 ]
