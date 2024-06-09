@@ -54,6 +54,87 @@ def update_product(assets_path):
     screen_clear()
     print('>> Atualização de produto <<\n')
 
+    # Recebe os produtos já cadastrados
+    productbase = read_products(assets_path)
+
+    search_description = input('Qual produto deseja pesquisar? ')
+
+    # Lista auxiliar para verificar se o produto já existe
+    # Executará um laço para inserir as ocorrências deste produto
+    # Caso o produto não tenha ocorrência, pergunta se deve realizar o registro
+    products_list = []
+
+    for idx in range(len(productbase)):
+        products_list.append(productbase[idx].get('DESCRIPTION'))
+
+    # Busca por ocorrências com a substring da descrição na base de produtos
+    found = [ idx for idx in products_list if search_description.capitalize() in idx ]
+
+    if len(found) == 0:
+        print('\nNenhum produto encontrado com esta descrição')
+    else:
+        print('\nProdutos encontrados: ')
+        
+        for idx in range(len(found)):
+            print(f'     {idx + 1}. {found[idx]}')
+        
+        selected = int(input('\nQual produto deseja atualizar? ')) -1
+
+        product_index = products_list.index(found[selected])
+
+        new_description = input('\nNova descrição (deixe em branco para não alterar): ')
+        new_brand = input('Nova marca (deixe em branco para não alterar): ')
+        new_restriction = input('Adicionar restrição (deixe em branco para não alterar): ')
+        new_stars = input('Nova avaliação de estrelas (deixe em branco para não alterar): ')
+        new_review = input('Nova avaliação (deixe em branco para não alterar): ')
+
+        if new_description:
+            productbase[product_index]['DESCRIPTION'] = new_description
+        if new_brand:
+            productbase[product_index]['BRAND'] = new_brand
+        if new_restriction:
+            list_restrictions = []
+
+            if len(productbase[product_index].get('RESTRICTION')) == 0:
+                list_restrictions.append(new_restriction)
+            else:
+                for restriction in productbase[product_index].get('RESTRICTION'):
+                    list_restrictions.append(restriction)
+                
+                list_restrictions.append(new_restriction)
+            
+            productbase[product_index]['RESTRICTION'] = list_restrictions
+        if new_stars:
+            productbase[product_index]['STARS'] = new_stars
+        if new_review:
+            list_reviews = []
+
+            if len(productbase[product_index].get('REVIEWS')) == 0:
+                list_reviews.append(new_review)
+            else:
+                for reviews in productbase[product_index].get('REVIEWS'):
+                    list_reviews.append(reviews)
+                
+                list_reviews.append(new_review)
+            
+            productbase[product_index]['REVIEWS'] = list_reviews
+
+        print('DADOS ATUALIZADOS')
+
+        print(f'\nDescrição: {productbase[product_index].get('DESCRIPTION')}')
+        print(f'Marca: {productbase[product_index].get('BRAND')}')
+        print(f'Estrelas: {productbase[product_index].get('STARS')}')
+
+        print('\nIndicado para as restrições:')
+        for idx, restriction in enumerate(productbase[product_index].get('RESTRICTION')):
+            print(f'>> {idx + 1}: {restriction}')
+
+        print('\nAvaliações:')
+        for idx, review in enumerate(productbase[product_index].get('REVIEWS')):
+            print(f'>> {idx + 1}: {review}')
+    
+    press_continue()
+
 # Função para cadastrar produtos
 def register_product(assets_path):
     screen_clear()
@@ -66,19 +147,37 @@ def register_product(assets_path):
     # O resultado desta soma será o id do novo usuário
     new_id = int(productbase[-1].get('ID')) + 1
 
-    new_description = input('Informe descrição (nome) do produto: ')
-    new_brand = input('Informe a marca do produto: ')
-    new_restriction = input('Qual restrição o produto atende? ')
+    new_description = input('Descrição do produto: ')
+    new_brand = input('Marca do produto: ')
+
+    add_restriction = 's'
+    list_restriction = []
+
+    while add_restriction == 's':
+        new_restriction = input('Qual restrição o produto atende? ')
+
+        list_restriction.append(new_restriction)
+
+        selected = input('Adicionar nova restrição (S/N)? ').lower()
+
+        if len(selected) > 1 and selected[0] == 's':
+            add_restriction = 's'
+        else:
+            add_restriction = 'n'
+    
     new_stars = int(input('Com quantas estrelas você avalia o produto? '))
+
+    list_review = []
     new_review = input('Escreva uma avaliação do produto: ')
+    list_review.append(new_review)
 
     # Cria o dicionário a ser adicionado na lista
     new_product = {'ID': new_id,
-                'DESCRIPTION': new_description,
-                'BRAND': new_brand,
-                'RESTRICTION': new_restriction,
-                'STARS': new_stars,
-                'REVIEWS': new_review
+                    'DESCRIPTION': new_description,
+                    'BRAND': new_brand,
+                    'RESTRICTION': list_restriction,
+                    'STARS': new_stars,
+                    'REVIEWS': list_review
                 }
     
     productbase.append(new_product)
@@ -127,10 +226,13 @@ def search_products(assets_path):
 
         print(f'\nDescrição: {productbase[product_index].get('DESCRIPTION')}')
         print(f'Marca: {productbase[product_index].get('BRAND')}')
-        print(f'Indicado para restrição: {productbase[product_index].get('RETRICTION')}')
         print(f'Estrelas: {productbase[product_index].get('STARS')}')
 
-        print('Avaliações:\n')
+        print('\nIndicado para as restrições:')
+        for idx, restriction in enumerate(productbase[product_index].get('RESTRICTION')):
+            print(f'>> {idx + 1}: {restriction}')
+
+        print('\nAvaliações:')
         for idx, review in enumerate(productbase[product_index].get('REVIEWS')):
             print(f'>> {idx + 1}: {review}')
     

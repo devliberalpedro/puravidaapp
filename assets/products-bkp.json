@@ -3,24 +3,52 @@
         "ID": "1",
         "DESCRIPTION": "Biscoito de cacau sem glúten 100G",
         "BRAND": "Celivita",
-        "RESTRICTION": "Gluten",
+        "RESTRICTION": [
+            "Glúten"
+        ],
         "STARS": 4,
-        "REVIEWS": ["Saboroso e leve! Meu filho amou", "Apesar do preço, não pode faltar no meu lanche"]
+        "REVIEWS": [
+            "Saboroso e leve! Meu filho amou",
+            "Apesar do preço, não pode faltar no meu lanche"
+        ]
     },
     {
         "ID": "2",
         "DESCRIPTION": "Torrada leve sem glúten e lactose 150G",
         "BRAND": "Schär",
-        "RESTRICTION": ["Gluten","Lactose"],
+        "RESTRICTION": [
+            "Glúten",
+            "Lactose"
+        ],
         "STARS": 5,
-        "REVIEWS": ["Combina perfeitamente com meu cafezinho"]
+        "REVIEWS": [
+            "Combina perfeitamente com meu cafezinho"
+        ]
     },
     {
         "ID": "3",
         "DESCRIPTION": "Biscoito de chocolate sem glúten recheado com creme de leite 165G",
         "BRAND": "Schär",
-        "RESTRICTION": "Gluten",
+        "RESTRICTION": [
+            "Glúten"
+        ],
         "STARS": 5,
-        "REVIEWS": ["Voltei a ser criança, mas agora com saúde!", "Ótimo", "Recomendado"]
+        "REVIEWS": [
+            "Voltei a ser criança, mas agora com saúde!",
+            "Ótimo",
+            "Recomendado"
+        ]
+    },
+    {
+        "ID": 4,
+        "DESCRIPTION": "Macarrão de arroz (Talharim) zero glúten 500G",
+        "BRAND": "Urbano",
+        "RESTRICTION": [
+            "Glúten"
+        ],
+        "STARS": 5,
+        "REVIEWS": [
+            "Melhor que macarrão com glúten"
+        ]
     }
 ]
