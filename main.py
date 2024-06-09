@@ -4,9 +4,22 @@ import users
 import products
 from pathlib import Path
 
+# Executa a limpeza do console para qualquer sistema operacional
+def screen_clear():
+    # windows: cls linux/apple: clear
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+def press_continue():
+    garbage = input('Pressione qualquer tecla para continuar...')
+
 # Função para controlar o login de usuário
 # Permite a criação de um novo usuário
 def login(assets_path):
+    screen_clear()
+
     print('>> PURAVIDA APP - CRUD <<')
     print('-- Senha para login na versão CRUD: puravidaapp --')
 
@@ -43,13 +56,6 @@ def login(assets_path):
 
 # Função Main do app
 if __name__ == "__main__":
-    # Executa a limpeza do console para qualquer sistema operacional
-    # windows: cls linux/apple: clear
-    if os.name == 'nt':
-        os.system('cls')
-    else:
-        os.system('clear')
-
     # Define o diretório para os arquivos com extenção .json
     assets_path = Path('./assets/')
 
@@ -63,12 +69,14 @@ if __name__ == "__main__":
         exit
 
     while True:
+        screen_clear()
+
         menu_opts = ({'id':1, 'info': 'Buscar estabelecimentos'},
                      {'id':2, 'info': 'Buscar profissionais'},
                      {'id':3, 'info': 'Compare e conheça'},
                      {'id':0, 'info': 'Sair'})
     
-        print('\n>> Menu inicial <<')
+        print('>> Menu inicial <<')
         for opt in menu_opts:
             print('     {id}. {info}'.format(**opt))
 
@@ -93,4 +101,4 @@ if __name__ == "__main__":
         elif selected == 2:
             print('2')
         elif selected == 3:
-            products.print_menu()
+            products.print_menu(assets_path)
