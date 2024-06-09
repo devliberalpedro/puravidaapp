@@ -1,13 +1,14 @@
 import os
 import getpass
 import users
+import products
 from pathlib import Path
 
 # Função para controlar o login de usuário
 # Permite a criação de um novo usuário
 def login(assets_path):
-    print('PURAVIDA APP - CRUD')
-    print('Senha para login na versão CRUD: puravidaapp')
+    print('>> PURAVIDA APP - CRUD <<')
+    print('-- Senha para login na versão CRUD: puravidaapp --')
 
     # Cria uma lista de dicionários com as informações dos usuários
     users_list = users.read_users(assets_path)
@@ -59,10 +60,37 @@ if __name__ == "__main__":
     # Caso a função retorne falso (1), termina a execução do app
     if not login(assets_path):
         print("Senha inválida! Você foi desconectado!")
+        exit
+
+    while True:
+        menu_opts = ({'id':1, 'info': 'Buscar estabelecimentos'},
+                     {'id':2, 'info': 'Buscar profissionais'},
+                     {'id':3, 'info': 'Compare e conheça'},
+                     {'id':0, 'info': 'Sair'})
     
-    menu_opts = ({'id':1, 'info': 'Menu de produtos'},
-                 {'id':2, 'info': 'Menu de estabelecimentos'},
-                 {'id':3, 'info': 'Menu de profissionais'})
-    
-    for opt in menu_opts:
-        print('{id}. {info}'.format(**opt))
+        print('\n>> Menu inicial <<')
+        for opt in menu_opts:
+            print('     {id}. {info}'.format(**opt))
+
+        try:
+            selected = int(input('Escolha uma opção: '))
+        except ValueError as error:
+            selected = None
+
+        while selected == None or not selected.is_integer or (selected < 0) or (selected > 3):
+            print(">>>> ATENÇÃO: Escolha uma opção válida!")
+
+            try:
+                selected = int(input('Escolha uma opção: '))
+            except ValueError as error:
+                selected = None
+
+        if selected == 0:
+            print('>> Obrigado por usar o PuravidaAPP! <<')
+            break
+        elif selected == 1:
+            print('1')
+        elif selected == 2:
+            print('2')
+        elif selected == 3:
+            products.print_menu()

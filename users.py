@@ -8,7 +8,7 @@ def read_users(assets_path):
 
 # Função para cadastrar novo usuário
 def user_signup(assets_path):
-    print('Cadastro de novo usuário\n\n')
+    print('>> Cadastro de usuário <<\n')
 
     # Recebe os usuários já cadastrados
     usersbase = read_users(assets_path)
