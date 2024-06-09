@@ -124,20 +124,18 @@ def remove_product(assets_path):
         print('Produtos encontrados: ')
         
         for idx in range(len(found)):
+            #print(f'     {idx + 1}. {products_list[found[idx]]}')
             print(f'     {idx + 1}. {found[idx]}')
         
-        print(productbase)
-        selected = int(input('Qual produto deseja remover? '))
-
-        print(products_list(found[selected - 1]))
+        selected = int(input('Qual produto deseja remover? ')) -1
         
-        deleting = products_list(found[selected - 1])
-        del productbase[deleting]
-        print(productbase)
+        # Deletar o produto selecionado da lista de produtos
+        deleting_index = products_list.index(found[selected])
+        del productbase[deleting_index]
 
         # Salva a lista no arquivo de produtos
-        #with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
-        #    json.dump(products_list, file, indent=4, ensure_ascii=False)
+        with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
+            json.dump(productbase, file, indent=4, ensure_ascii=False)
     
         print('>> Produto excluído do sistema com sucesso! <<')
     
