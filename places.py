@@ -1,5 +1,4 @@
 import json
-#from main import screen_clear, press_continue
 import main
 
 def print_menu(assets_path):
@@ -171,54 +170,84 @@ def register_places(assets_path):
     main.screen_clear()
     print('>> Cadastro de estabelecimentos <<\n')
 
-    # # Recebe os usuários já cadastrados
-    # productbase = read_products(assets_path)
+    # Recebe os usuários já cadastrados
+    placesbase = read_places(assets_path)
 
-    # # Recebe o id do último usuárko cadastrado e soma 1
-    # # O resultado desta soma será o id do novo usuário
-    # new_id = int(productbase[-1].get('ID')) + 1
+    # Recebe o id do último usuárko cadastrado e soma 1
+    # O resultado desta soma será o id do novo usuário
+    new_id = int(placesbase[-1].get('ID')) + 1
 
-    # new_description = input('Descrição do produto: ')
-    # new_brand = input('Marca do produto: ')
+    new_name = input('Nome do estabelecimento: ')
+    new_type = input('Tipo do estabelecimento: ')
+    new_phone = input('Telefone do estabelecimento: ')
+    new_email = input('Email do estabelecimento: ')
+    new_address = input('Endereço do estabelecimento: ')
+    new_city = input('Cidade do estabelecimento: ')
 
-    # add_restriction = 's'
-    # list_restriction = []
+    add_social = 's'
+    list_social = []
 
-    # while add_restriction == 's':
-    #     new_restriction = input('Qual restrição o produto atende? ')
+    while add_social == 's':
+        new_social_name = input('Qual o nome da rede social? ')
+        new_social_profile = input('Qual o perfil? ')
 
-    #     list_restriction.append(new_restriction)
+        list_social.append(f'{new_social_name}: {new_social_profile}')
 
-    #     selected = input('Adicionar nova restrição (S/N)? ').lower()
+        selected = input('Adicionar nova rede (S/N)? ').lower()
 
-    #     if len(selected) > 1 and selected[0] == 's':
-    #         add_restriction = 's'
-    #     else:
-    #         add_restriction = 'n'
+        if len(selected) > 1 and selected[0] == 's':
+            add_social = 's'
+        else:
+            add_social = 'n'
     
-    # new_stars = int(input('Com quantas estrelas você avalia o produto? '))
+    new_bio = input('Biografia do estabelecimento: ')
+    new_stars = float(input('Nota do estabelecimento (0-5): '))
+    new_number_stars = 1
 
-    # list_review = []
-    # new_review = input('Escreva uma avaliação do produto: ')
-    # list_review.append(new_review)
+    list_review = []
+    new_review = input('Escreva uma avaliação do produto: ')
+    list_review.append(new_review)
 
-    # # Cria o dicionário a ser adicionado na lista
-    # new_product = {'ID': new_id,
-    #                 'DESCRIPTION': new_description,
-    #                 'BRAND': new_brand,
-    #                 'RESTRICTION': list_restriction,
-    #                 'STARS': new_stars,
-    #                 'REVIEWS': list_review
-    #             }
+    add_service = 's'
+    list_services = []
+
+    while add_service == 's':
+        new_service = input('Qual o serviço ofertado (Delivery, Consumo no local, etc)? ')
+
+        list_services.append(new_service)
+
+        selected = input('Adicionar novo serviço (S/N)? ').lower()
+
+        if len(selected) > 1 and selected[0] == 's':
+            add_service = 's'
+        else:
+            add_service = 'n'
     
-    # productbase.append(new_product)
-
-    # # Salva a lista no arquivo de produtos
-    # with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
-    #     json.dump(productbase, file, indent=4, ensure_ascii=False)
+    # Cria o dicionário a ser adicionado na lista
+    new_place = {
+                    'ID': new_id,
+                    'NAME': new_name,
+                    'TYPE': new_type,
+                    'PHONE': new_phone,
+                    'EMAIL': new_email,
+                    'ADDRESS': new_address,
+                    'CITY': new_city,
+                    'SOCIAL': list_social,
+                    'BIO': new_bio,
+                    'STARS': new_stars,
+                    'NUMBER_STARS': new_number_stars,
+                    'REVIEWS': list_review,
+                    'SERVICES': list_services
+                }
     
-    # print('\n>> Produto cadastrado com sucesso! <<')
-    # press_continue()
+    placesbase.append(new_place)
+
+    # Salva a lista no arquivo de produtos
+    with open(f'{assets_path}/places.json', 'w', encoding='utf-8') as file:
+        json.dump(placesbase, file, indent=4, ensure_ascii=False)
+    
+    print('\n>> Estabelecimento cadastrado com sucesso! <<')
+    main.press_continue()
 
 # Função para pesquisar produtos
 def search_places(assets_path):
@@ -281,42 +310,42 @@ def search_places(assets_path):
 # Remove um produto
 def remove_places(assets_path):
     main.screen_clear()
-    print('>> Remover produto <<\n')
+    print('>> Remover estabelecimento <<\n')
 
-    # # Recebe os produtos já cadastrados
-    # productbase = read_products(assets_path)
+    # Recebe os produtos já cadastrados
+    placesbase = read_places(assets_path)
 
-    # search_description = input('Qual produto deseja remover? ')
+    search_description = input('Qual estabelecimento você deseja remover? ')
 
-    # # Lista auxiliar para verificar se o produto já existe
-    # # Executará um laço para inserir as ocorrências deste produto
-    # # Caso o produto não tenha ocorrência, pergunta se deve realizar o registro
-    # products_list = []
+    # Lista auxiliar para verificar se o produto já existe
+    # Executará um laço para inserir as ocorrências deste produto
+    # Caso o produto não tenha ocorrência, pergunta se deve realizar o registro
+    places_list = []
 
-    # for idx in range(len(productbase)):
-    #     products_list.append(productbase[idx].get('DESCRIPTION'))
+    for idx in range(len(placesbase)):
+        places_list.append(placesbase[idx].get('NAME'))
 
-    # # Busca por ocorrências com a substring da descrição na base de produtos
-    # found = [ idx for idx in products_list if search_description.capitalize() in idx ]
+    # Busca por ocorrências com a substring da descrição na base de produtos
+    found = [ idx for idx in places_list if search_description.capitalize() in idx ]
 
-    # if len(found) == 0:
-    #     print('\nNenhum produto encontrado com esta descrição')
-    # else:
-    #     print('\nProdutos encontrados: ')
+    if len(found) == 0:
+        print('\nNenhum produto encontrado com esta descrição')
+    else:
+        print('\Estabelecimentos encontrados: ')
         
-    #     for idx in range(len(found)):
-    #         print(f'     {idx + 1}. {found[idx]}')
+        for idx in range(len(found)):
+            print(f'     {idx + 1}. {found[idx]}')
         
-    #     selected = int(input('\nQual produto deseja remover? ')) -1
+        selected = int(input('\nQual produto deseja remover? ')) -1
         
-    #     # Deletar o produto selecionado da lista de produtos
-    #     deleting_index = products_list.index(found[selected])
-    #     del productbase[deleting_index]
+        # Deletar o produto selecionado da lista de produtos
+        deleting_index = places_list.index(found[selected])
+        del placesbase[deleting_index]
 
-    #     # Salva a lista no arquivo de produtos
-    #     with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
-    #         json.dump(productbase, file, indent=4, ensure_ascii=False)
+        # Salva a lista no arquivo de produtos
+        with open(f'{assets_path}/places.json', 'w', encoding='utf-8') as file:
+            json.dump(placesbase, file, indent=4, ensure_ascii=False)
     
-    #     print('\n>> Produto excluído do sistema com sucesso! <<')
+        print('\n>> Estabelecimento excluído do sistema com sucesso! <<')
     
-    # press_continue()
+    main.press_continue()

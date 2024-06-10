@@ -73,9 +73,9 @@ if __name__ == "__main__":
     while True:
         screen_clear()
 
-        menu_opts = ({'id':1, 'info': 'Buscar estabelecimentos'},
-                     {'id':2, 'info': 'Buscar profissionais'},
-                     {'id':3, 'info': 'Compare e conheça'},
+        menu_opts = ({'id':1, 'info': 'Estabelecimentos'},
+                     {'id':2, 'info': 'Profissionais'},
+                     {'id':3, 'info': 'Produtos - Compare e conheça'},
                      {'id':0, 'info': 'Sair'})
     
         print('>> Menu inicial <<')

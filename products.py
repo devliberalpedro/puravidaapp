@@ -1,9 +1,9 @@
 import json
-from main import screen_clear, press_continue
+import main
 
 def print_menu(assets_path):
     while True:
-        screen_clear()
+        main.screen_clear()
 
         menu_opts = ({'id':1, 'info': 'Alterar produto'},
                      {'id':2, 'info': 'Cadastrar produto'},
@@ -49,7 +49,7 @@ def read_products(assets_path):
 
 # Função para atualizar produto
 def update_product(assets_path):
-    screen_clear()
+    main.screen_clear()
     print('>> Atualização de produto <<\n')
 
     # Recebe os produtos já cadastrados
@@ -136,11 +136,11 @@ def update_product(assets_path):
         json.dump(productbase, file, indent=4, ensure_ascii=False)
 
     print('\n>> Produto atualizado com sucesso! <<')    
-    press_continue()
+    main.press_continue()
 
 # Função para cadastrar produtos
 def register_product(assets_path):
-    screen_clear()
+    main.screen_clear()
     print('>> Cadastro de produtos <<\n')
 
     # Recebe os usuários já cadastrados
@@ -190,11 +190,11 @@ def register_product(assets_path):
         json.dump(productbase, file, indent=4, ensure_ascii=False)
     
     print('\n>> Produto cadastrado com sucesso! <<')
-    press_continue()
+    main.press_continue()
 
 # Função para comprar produtos
 def compare_products(assets_path):
-    screen_clear()
+    main.screen_clear()
     print('>> Comparar produtos <<\n')
 
     # Recebe os produtos já cadastrados
@@ -242,11 +242,11 @@ def compare_products(assets_path):
             for idx, review in enumerate(productbase[product_index].get('REVIEWS')):
                 print(f'>> {idx + 1}: {review}')
     
-    press_continue()
+    main.press_continue()
 
 # Função para pesquisar produtos
 def search_products(assets_path):
-    screen_clear()
+    main.screen_clear()
     print('>> Pesquisar produtos <<\n')
 
     # Recebe os produtos já cadastrados
@@ -289,11 +289,11 @@ def search_products(assets_path):
         for idx, review in enumerate(productbase[product_index].get('REVIEWS')):
             print(f'>> {idx + 1}: {review}')
     
-    press_continue()
+    main.press_continue()
 
 # Remove um produto
 def remove_product(assets_path):
-    screen_clear()
+    main.screen_clear()
     print('>> Remover produto <<\n')
 
     # Recebe os produtos já cadastrados
@@ -332,4 +332,4 @@ def remove_product(assets_path):
     
         print('\n>> Produto excluído do sistema com sucesso! <<')
     
-    press_continue()
+    main.press_continue()
