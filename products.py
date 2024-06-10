@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 from main import screen_clear, press_continue
 
 def print_menu(assets_path):
@@ -136,7 +135,7 @@ def update_product(assets_path):
     with open(f'{assets_path}/products.json', 'w', encoding='utf-8') as file:
         json.dump(productbase, file, indent=4, ensure_ascii=False)
 
-    print('\n>> Produto atializado com sucesso! <<')    
+    print('\n>> Produto atualizado com sucesso! <<')    
     press_continue()
 
 # Função para cadastrar produtos

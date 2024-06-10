@@ -2,6 +2,7 @@ import os
 import getpass
 import users
 import products
+import places
 #import professionals
 from pathlib import Path
 
@@ -98,7 +99,7 @@ if __name__ == "__main__":
             print('>> Obrigado por usar o PuravidaAPP! <<')
             break
         elif selected == 1:
-            print('1')
+            places.print_menu(assets_path)
         elif selected == 2:
             print('2')
         elif selected == 3:
