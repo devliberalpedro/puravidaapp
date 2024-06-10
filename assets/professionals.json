@@ -1,25 +1,29 @@
 [
     {
         "ID": "1",
-        "NAME": "Ricardo Oliveira da Silva",
+        "NAME": "Ricardo Oliveira da Silva Filho",
         "EXPERTISE": "Nutricionista",
-        "PHONE":"(81)99678.5422",
+        "PHONE": "(81)99678.5422",
         "EMAIL": "ricardooliveira@nutrimed.com",
-        "SOCIAL": ["@ricardooliveiranutri"],
+        "SOCIAL": [
+            "@ricardooliveiranutri"
+        ],
         "ADDRESS": "Av. Domingos Ferreira, 130. Sala 1330. Boa Viagem. Recife/PE",
-        "CITY":"Recife",
-        "SITE":"www.ricardonutri.com.br",
+        "CITY": "Recife",
+        "SITE": "www.ricardonutri.com.br",
         "BIO": "Nutricionista especialista em doença celíaca"
     },
     {
         "ID": "2",
         "NAME": "João Pedro Araujo de Souza",
         "EXPERTISE": "Nutricionista",
-        "PHONE":"(81)98543.3012",
+        "PHONE": "(81)98543.3012",
         "EMAIL": "jparaujo@unimed.com",
-        "SOCIAL": ["@joaopedronutri"],
+        "SOCIAL": [
+            "@joaopedronutri"
+        ],
         "ADDRESS": "Av. República do Líbano, 251, 5° Andar,Torre B. Pina. Recife/PE",
-        "CITY":"Recife",
+        "CITY": "Recife",
         "SITE": "",
         "BIO": "Nutricionista com mais de 20 anos de experiência"
     },
@@ -27,60 +31,70 @@
         "ID": "3",
         "NAME": "Luis Gustavo Alves Lima",
         "EXPERTISE": "Gastroenterologista.",
-        "PHONE":"(11)99549.4934",
+        "PHONE": "(11)99549.4934",
         "EMAIL": "luisgusta@nutromed.com",
-        "SOCIAL": ["@gastroluisgustavo"],
+        "SOCIAL": [
+            "@gastroluisgustavo"
+        ],
         "ADDRESS": "Rua Dona Inácia Uchôa, 40 - Vila Mariana, São Paulo/SP",
-        "CITY":"São Paulo",
-        "SITE":"www.luisgustasaude.com.br",
+        "CITY": "São Paulo",
+        "SITE": "www.luisgustasaude.com.br",
         "BIO": "Especialista em cuidar de pessoas com intolerância a Glúten"
-    }, 
+    },
     {
         "ID": "4",
         "NAME": "Caio Henrique Lucena",
         "EXPERTISE": "Nutricionista",
-        "PHONE":"(11)98706.1324",
+        "PHONE": "(11)98706.1324",
         "EMAIL": "caiohenriquenu@gmail.com",
-        "SOCIAL": ["@nutri.caiolucena"],
+        "SOCIAL": [
+            "@nutri.caiolucena"
+        ],
         "ADDRESS": "Rua Joaquim Floriano, 413 - 9° andar, São Paulo/SP",
-        "CITY":"São Paulo",
+        "CITY": "São Paulo",
         "SITE": "",
         "BIO": "Nutricionista especializado em vegetarianos, veganos, intolerantes a lactose e intolerantes ao glúten"
-    },   
+    },
     {
         "ID": "5",
         "NAME": "Leonardo Oliveira de Andrade Neto",
         "EXPERTISE": "Psicólogo",
-        "PHONE":"(81)99220.5470",
+        "PHONE": "(81)99220.5470",
         "EMAIL": "oliveraaneto@hotmail.com",
-        "SOCIAL": ["@leonardonetopsi"],
+        "SOCIAL": [
+            "@leonardonetopsi"
+        ],
         "ADDRESS": "Av. República do Líbano, 251, 11° Andar,Torre A. Pina. Recife/PE",
-        "CITY":"Recife",
-        "SITE":"www.suamentecomleo.com",
+        "CITY": "Recife",
+        "SITE": "www.suamentecomleo.com",
         "BIO": "Você não está nessa batalha sozinho, além de cuidar do seu corpo, cuide da sua mente comigo!"
     },
     {
         "ID": "6",
         "NAME": "Igor Alves Matias Mascarenhas  ",
         "EXPERTISE": "Nutricionista",
-        "PHONE":"(11)98786.4533",
+        "PHONE": "(11)98786.4533",
         "EMAIL": "dr.igormm@gmail.com",
-        "SOCIAL": ["@drigormm"],
+        "SOCIAL": [
+            "@drigormm"
+        ],
         "ADDRESS": "Rua Dr. Renato Paes de Barros, 750 - cj 121 São Paulo/SP",
-        "CITY":"São Paulo",
-        "SITE":"www.meunutrigor.com.br",
+        "CITY": "São Paulo",
+        "SITE": "www.meunutrigor.com.br",
         "BIO": "O melhor nutricionista para todo tipo de restrição alimentar"
     },
     {
         "ID": "7",
         "NAME": "Heitor Machado Jandir de Assis",
         "EXPERTISE": "Cardiologista",
-        "PHONE":"(81)99992.8750",
+        "PHONE": "(81)99992.8750",
         "EMAIL": "heitor.mjassis@unimed.com",
-        "SOCIAL": ["@heitor.mjassis"],
+        "SOCIAL": [
+            "@heitor.mjassis"
+        ],
         "ADDRESS": "Abdias de Carvalho, 215.San Martin. Recife/PE",
-        "CITY":"Recife",
-        "SITE":"www.cardiomj.com.br",
+        "CITY": "Recife",
+        "SITE": "www.cardiomj.com.br",
         "BIO": "Vem cuidar do seu coração com o melhor médico do estado"
     }
 ]

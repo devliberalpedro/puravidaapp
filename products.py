@@ -12,7 +12,7 @@ def print_menu(assets_path):
                      {'id':5, 'info': 'Remover produto'},
                      {'id':0, 'info': 'Voltar ao menu inicial'})
     
-        print('>> Menu: Compare e Conheça <<')
+        print('>> Menu: Produtos - Compare e conheça <<')
         for opt in menu_opts:
             print('     {id}. {info}'.format(**opt))
         

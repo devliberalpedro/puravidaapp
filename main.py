@@ -3,7 +3,7 @@ import getpass
 import users
 import products
 import places
-#import professionals
+import professionals
 from pathlib import Path
 
 # Executa a limpeza do console para qualquer sistema operacional
@@ -101,6 +101,6 @@ if __name__ == "__main__":
         elif selected == 1:
             places.print_menu(assets_path)
         elif selected == 2:
-            print('2')
+            professionals.print_menu(assets_path)
         elif selected == 3:
             products.print_menu(assets_path)

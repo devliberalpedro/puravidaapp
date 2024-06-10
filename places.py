@@ -11,7 +11,7 @@ def print_menu(assets_path):
                      {'id':4, 'info': 'Remover estabelecimento'},
                      {'id':0, 'info': 'Voltar ao menu inicial'})
     
-        print('>> Menu: Compare e Conheça <<')
+        print('>> Menu: Estabelecimentos <<')
         for opt in menu_opts:
             print('     {id}. {info}'.format(**opt))
         
