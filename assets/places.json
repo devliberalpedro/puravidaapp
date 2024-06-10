@@ -7,12 +7,17 @@
         "EMAIL": "contato@chicapitanga.com.br",
         "ADDRESS": "Rua Petrolina 19, Recife/PE",
         "CITY": "Recife",
-        "SOCIAL": ["Instagram: @chicapitangarecife"],
+        "SOCIAL": [
+            "Instagram: @chicapitangarecife"
+        ],
         "BIO": "Restaurante especializado para pessoas com intolerância à glúten",
         "STARS": 4.59,
         "NUMBER STARS": 5,
         "REVIEWS": [],
-        "SERVICES": ["Consumo no local", "Delivery"]
+        "SERVICES": [
+            "Consumo no local",
+            "Delivery"
+        ]
     },
     {
         "ID": "2",
@@ -22,12 +27,17 @@
         "EMAIL": "contato@camaradacamarao.com.br",
         "ADDRESS": "Rua Petrolina 19, Recife/PE",
         "CITY": "Recife",
-        "SOCIAL": ["Instagram: @camaradacamarao"],
+        "SOCIAL": [
+            "Instagram: @camaradacamarao"
+        ],
         "BIO": "Restaurante especializado para pessoas com intolerância à glúten",
         "STARS": 3,
         "NUMBER STARS": 15,
         "REVIEWS": [],
-        "SERVICES": ["Consumo no local", "Delivery"]
+        "SERVICES": [
+            "Consumo no local",
+            "Delivery"
+        ]
     },
     {
         "ID": "3",
@@ -37,12 +47,17 @@
         "EMAIL": "espinheiro@entreamigos.com.br",
         "ADDRESS": "Rua da Hora 695, Recife/PE",
         "CITY": "Recife",
-        "SOCIAL": ["Instagram: @entreamigosobode"],
+        "SOCIAL": [
+            "Instagram: @entreamigosobode"
+        ],
         "BIO": "Restaurante com diversa opções de carnes e que com diversos pratos no cardápios para pessoas com intolerância ao glúten",
         "STARS": 5,
         "NUMBER STARS": 5,
         "REVIEWS": [],
-        "SERVICES": ["Consumo no local", "Delivery"]
+        "SERVICES": [
+            "Consumo no local",
+            "Delivery"
+        ]
     },
     {
         "ID": "4",
@@ -52,12 +67,17 @@
         "EMAIL": "contato@lupipizzaria.com.br",
         "ADDRESS": "R. José Domingues da Silva, 238, Recife/PE",
         "CITY": "Recife",
-        "SOCIAL": ["Instagram: @lupipizzeria "],
+        "SOCIAL": [
+            "Instagram: @lupipizzeria "
+        ],
         "BIO": "Melhor pizzaria para vegetarianos e veganos",
         "STARS": 3.59,
         "NUMBER STARS": 21,
         "REVIEWS": [],
-        "SERVICES": ["Consumo no local", "Delivery"]
+        "SERVICES": [
+            "Consumo no local",
+            "Delivery"
+        ]
     },
     {
         "ID": "5",
@@ -67,12 +87,17 @@
         "EMAIL": "contato@greenmix.com",
         "ADDRESS": "Av. República do Líbano, 251 - ST 107 - Pina, Recife/PE",
         "CITY": "Recife",
-        "SOCIAL": ["Instagram: @greenmix "],
+        "SOCIAL": [
+            "Instagram: @greenmix "
+        ],
         "BIO": "Supermercado com itens vegetarianos e veganos, sem glúten e sem lactose",
         "STARS": 5,
         "NUMBER STARS": 50,
         "REVIEWS": [],
-        "SERVICES": ["Consumo no local", "Delivery"]
+        "SERVICES": [
+            "Consumo no local",
+            "Delivery"
+        ]
     },
     {
         "ID": "6",
@@ -82,12 +107,17 @@
         "EMAIL": "contato@brodnatural.com",
         "ADDRESS": "Rua Clóvis Beviláqua, 114 - Madalena, Recife/PE",
         "CITY": "Recife",
-        "SOCIAL": ["Instagram: @brodnatural "],
+        "SOCIAL": [
+            "Instagram: @brodnatural "
+        ],
         "BIO": "Padaria vegana e sem glúten",
         "STARS": 4.79,
         "NUMBER STARS": 34,
         "REVIEWS": [],
-        "SERVICES": ["Consumo no local", "Delivery"]
+        "SERVICES": [
+            "Consumo no local",
+            "Delivery"
+        ]
     },
     {
         "ID": "7",
@@ -97,11 +127,79 @@
         "EMAIL": "contato@pegpese.com.br",
         "ADDRESS": "Av. Bolonha, 200 - Jaguaré, São Paulo/SP",
         "CITY": "São Paulo",
-        "SOCIAL": ["Instagram: @pegpese"],
+        "SOCIAL": [
+            "Instagram: @pegpese"
+        ],
         "BIO": "Supermercado com os melhores itens sem glúten, sem lactose e vegetarianos",
         "STARS": 3.89,
         "NUMBER STARS": 85,
         "REVIEWS": [],
-        "SERVICES": ["Consumo no local", "Delivery"]
+        "SERVICES": [
+            "Consumo no local",
+            "Delivery"
+        ]
+    },
+    {
+        "ID": 8,
+        "NAME": "Vittasabor",
+        "TYPE": "Restaurante",
+        "PHONE": "(81)3562-6530",
+        "EMAIL": "contato@vittasabor.com",
+        "ADDRESS": "Rua Vittasabor",
+        "CITY": "Recife",
+        "SOCIAL": [
+            "@vittasabor: @vittasabor"
+        ],
+        "BIO": ".",
+        "STARS": 5.0,
+        "NUMBER_STARS": 1,
+        "REVIEWS": [
+            "Ótimos produtos"
+        ],
+        "SERVICES": [
+            "Consumo no local"
+        ]
+    },
+    {
+        "ID": 9,
+        "NAME": "Cacau Show",
+        "TYPE": "Chocolateria",
+        "PHONE": "(81)3564-5214",
+        "EMAIL": "contato@cacaushow.com.br",
+        "ADDRESS": "Rua do Cacau",
+        "CITY": "Recife",
+        "SOCIAL": [
+            "Instagram: @cacaushow"
+        ],
+        "BIO": ".",
+        "STARS": 5.0,
+        "NUMBER_STARS": 1,
+        "REVIEWS": [
+            "Pouca variedade de produtos sem lactose"
+        ],
+        "SERVICES": [
+            "Delivery"
+        ]
+    },
+    {
+        "ID": 10,
+        "NAME": "Vila Sabor",
+        "TYPE": "Mercado",
+        "PHONE": "(81)95846.6584",
+        "EMAIL": "contato@sabor.com",
+        "ADDRESS": "Rua do Sabor",
+        "CITY": "Recife",
+        "SOCIAL": [
+            "Instagram: @vilasabor"
+        ],
+        "BIO": ".",
+        "STARS": 4.0,
+        "NUMBER_STARS": "1",
+        "REVIEWS": [
+            "Ótimo"
+        ],
+        "SERVICES": [
+            "Delivery"
+        ]
     }
 ]

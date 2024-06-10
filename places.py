@@ -52,7 +52,11 @@ def update_places(assets_path):
     # Recebe os estabelecimentos já cadastrados
     placesbase = read_places(assets_path)
 
-    search_description = input('Qual estabelecimento deseja pesquisar? ')
+    print('\nESTABELECIMENTOS CADASTRADOS')
+    for idx in range(len(placesbase)):
+        print(f'>> {idx + 1}: {placesbase[idx].get('NAME')}')
+
+    search_description = input('\nQual estabelecimento deseja atualizar (digite ao menos parte da palavra de pesquisa)? ')
 
     # Lista auxiliar para verificar se o estabelecimento já existe
     # Executará um laço para inserir as ocorrências deste estabelecimento
@@ -202,10 +206,10 @@ def register_places(assets_path):
     
     new_bio = input('Biografia do estabelecimento: ')
     new_stars = float(input('Nota do estabelecimento (0-5): '))
-    new_number_stars = 1
+    new_number_stars = '1'
 
     list_review = []
-    new_review = input('Escreva uma avaliação do produto: ')
+    new_review = input('Escreva uma avaliação do estabelecimento: ')
     list_review.append(new_review)
 
     add_service = 's'
@@ -295,7 +299,7 @@ def search_places(assets_path):
         
         print(f'Biografia: {placesbase[place_index].get('BIO')}')
         print(f'Avaliação de estrelas: {placesbase[place_index].get('STARS')}')
-        print(f'Total de avaliações: {placesbase[place_index].get('NUMBER STARS')}')
+        print(f'Total de avaliações: {placesbase[place_index].get('NUMBER_STARS')}')
 
         print('Avaliações:')
         for idx, review in enumerate(placesbase[place_index].get('REVIEWS')):

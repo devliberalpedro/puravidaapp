@@ -51,5 +51,17 @@
         "REVIEWS": [
             "Melhor que macarrão com glúten"
         ]
+    },
+    {
+        "ID": 5,
+        "DESCRIPTION": "Queijo sem lactose 500G",
+        "BRAND": "Polenguinho",
+        "RESTRICTION": [
+            "Lactose"
+        ],
+        "STARS": 5,
+        "REVIEWS": [
+            "Muito gostoso"
+        ]
     }
 ]

@@ -49,7 +49,11 @@ def update_professional(assets_path):
     # Recebe os estabelecimentos já cadastrados
     professionalsbase = read_professionals(assets_path)
 
-    search_description = input('Qual estabelecimento deseja pesquisar? ')
+    print('\nPROFISSIONAIS CADASTRADOS')
+    for idx in range(len(professionalsbase)):
+        print(f'>> {idx + 1}: {professionalsbase[idx].get('NAME')}')
+
+    search_description = input('\nQual estabelecimento deseja atualizar (digite ao menos parte da palavra de pesquisa) ? ')
 
     # Lista auxiliar para verificar se o estabelecimento já existe
     # Executará um laço para inserir as ocorrências deste estabelecimento

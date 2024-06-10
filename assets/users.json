@@ -43,5 +43,23 @@
         "RESTRICTION": false,
         "RESTRICTION_ID": [],
         "LAST_LOGIN": ""
+    },
+    {
+        "ID": 6,
+        "NAME": "Bety Senna",
+        "USERNAME": "betysenna",
+        "BIO": "Mãe de celíaco",
+        "RESTRICTION": false,
+        "RESTRICTION_ID": [],
+        "LAST_LOGIN": ""
+    },
+    {
+        "ID": 7,
+        "NAME": "Teresa Faria",
+        "USERNAME": "teresa.faria",
+        "BIO": ".",
+        "RESTRICTION": true,
+        "RESTRICTION_ID": [],
+        "LAST_LOGIN": ""
     }
 ]

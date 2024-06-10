@@ -55,7 +55,11 @@ def update_product(assets_path):
     # Recebe os produtos já cadastrados
     productbase = read_products(assets_path)
 
-    search_description = input('Qual produto deseja pesquisar? ')
+    print('PRODUTOS CADASTRADOS')
+    for idx in range(len(productbase)):
+        print(f'>> {idx + 1}: {productbase[idx].get('DESCRIPTION')}')
+
+    search_description = input('\nQual produto deseja atualizar (digite ao menos parte da palavra de pesquisa)? ')
 
     # Lista auxiliar para verificar se o produto já existe
     # Executará um laço para inserir as ocorrências deste produto
