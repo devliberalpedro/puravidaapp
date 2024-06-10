@@ -144,17 +144,18 @@ def search_by_city(assets_path):
     # Recebe os profissionais já cadastrados
     professionalsbase = read_professionals(assets_path)
 
-    search_description = input('Qual a cidade do profissional? ')
+    search_description = input('Qual a cidade do profissional? ').capitalize()
 
     # Executará um laço para inserir as ocorrências
-    places_list = []
+    professional_list = []
 
     for idx in range(len(professionalsbase)):
         if professionalsbase[idx].get('CITY') == search_description:
-            places_list.append(professionalsbase[idx].get('NAME'))
+            professional_list.append(professionalsbase[idx].get('NAME'))
 
     # Busca por ocorrências com a substring da descrição na base de produtos
-    found = [ idx for idx in places_list if search_description.capitalize() in idx ]
+    found = [ idx for idx in professional_list ]
+    #found = [ idx for idx in professional_list if search_description.capitalize() in idx ]
 
     if len(found) == 0:
         print('\nNenhum profissional encontrado nesta cidade')
@@ -166,7 +167,7 @@ def search_by_city(assets_path):
 
         selected = int(input('\nQual profissional deseja mais informações? ')) -1
 
-        professional_index = places_list.index(found[selected])
+        professional_index = professional_list.index(found[selected])
 
         print(f'\nNome: {professionalsbase[professional_index].get('NAME')}')
         print(f'Especialização: {professionalsbase[professional_index].get('EXPERTISE')}')
@@ -188,57 +189,49 @@ def search_by_city(assets_path):
 # Função para pesquisar por especialidade
 def search_by_expertise(assets_path):
     main.screen_clear()
-    print('>> Pesquisa de estabelecimentos <<\n')
+    print('>> Pesquisa de profissionais (por especialização) <<\n')
 
-    # Recebe os estabelecimentos já cadastrados
-    placesbase = read_places(assets_path)
+    # Recebe os profissionais já cadastrados
+    professionalsbase = read_professionals(assets_path)
 
-    search_description = input('Qual estabelecimento deseja pesquisar? ')
+    search_description = input('Qual a especialização do profissional? ').capitalize()
 
-    # Lista auxiliar para verificar se o estabelecimento já existe
-    # Executará um laço para inserir as ocorrências deste estabelecimento
-    # Caso o estabelecimento não tenha ocorrência, pergunta se deve realizar o registro
-    places_list = []
+    # Executará um laço para inserir as ocorrências
+    professional_list = []
 
-    for idx in range(len(placesbase)):
-        places_list.append(placesbase[idx].get('NAME'))
+    for idx in range(len(professionalsbase)):
+        if professionalsbase[idx].get('EXPERTISE') == search_description:
+            professional_list.append(professionalsbase[idx].get('NAME'))
 
     # Busca por ocorrências com a substring da descrição na base de produtos
-    found = [ idx for idx in places_list if search_description.capitalize() in idx ]
+    found = [ idx for idx in professional_list ]
+    #found = [ idx for idx in professional_list if search_description.capitalize() in idx ]
 
     if len(found) == 0:
-        print('\nNenhum estabelecimento encontrado com este nome')
+        print('\nNenhum profissional encontrado com esta especialização')
     else:
-        print('\nEstabelecimentos encontrados: ')
+        print('\nProfissionais encontrados: ')
         
         for idx in range(len(found)):
             print(f'     {idx + 1}. {found[idx]}')
 
-        selected = int(input('\nQual estabelecimento deseja mais informações? ')) -1
+        selected = int(input('\nQual profissional deseja mais informações? ')) -1
 
-        place_index = places_list.index(found[selected])
+        professional_index = professional_list.index(found[selected])
 
-        print(f'\nNome: {placesbase[place_index].get('NAME')}')
-        print(f'Tipo: {placesbase[place_index].get('TYPE')}')
-        print(f'Telefone: {placesbase[place_index].get('PHONE')}')
-        print(f'Email: {placesbase[place_index].get('EMAIL')}')
-        print(f'Endereço: {placesbase[place_index].get('ADDRESS')}')
-        print(f'Cidade: {placesbase[place_index].get('CITY')}')
+        print(f'\nNome: {professionalsbase[professional_index].get('NAME')}')
+        print(f'Especialização: {professionalsbase[professional_index].get('EXPERTISE')}')
+        print(f'Telefone: {professionalsbase[professional_index].get('PHONE')}')
+        print(f'Email: {professionalsbase[professional_index].get('EMAIL')}')
 
         print('Redes socials:')
-        for idx, social in enumerate(placesbase[place_index].get('SOCIAL')):
+        for idx, social in enumerate(professionalsbase[professional_index].get('SOCIAL')):
             print(f'>> {idx + 1}: {social}')
-        
-        print(f'Biografia: {placesbase[place_index].get('BIO')}')
-        print(f'Avaliação de estrelas: {placesbase[place_index].get('STARS')}')
-        print(f'Total de avaliações: {placesbase[place_index].get('NUMBER STARS')}')
 
-        print('Avaliações:')
-        for idx, review in enumerate(placesbase[place_index].get('REVIEWS')):
-            print(f'>> {idx + 1}: {review}')
-        
-        print('Serviços:')
-        for idx, service in enumerate(placesbase[place_index].get('SERVICES')):
-            print(f'>> {idx + 1}: {service}')
+        print(f'Endereço: {professionalsbase[professional_index].get('ADDRESS')}')
+        print(f'Cidade: {professionalsbase[professional_index].get('CITY')}')
+
+        print(f'Site: {professionalsbase[professional_index].get('SITE')}')
+        print(f'Biografia: {professionalsbase[professional_index].get('BIO')}')
     
     main.press_continue()
